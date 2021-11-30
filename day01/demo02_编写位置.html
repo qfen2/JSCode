@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1. 将js写到onclick属性中 -->
+    <button onclick="alert('别瞎点');">点我一下</button>
+    <!-- 2. 将js写到超链接的href属性中，点击链接时会执行js代码 -->
+    <a href="javascript:alert('hello');">百度地址</a>
+    <a href="javascript:;">别点了，啥也没有</a>
+    <!-- 以上两种属于结构和行为耦合，不便维护，不推荐使用 -->
+    <!-- 3. 将js代码编写在script标签中 -->
+    <script>
+        function a(){
+            console.log('hello world');
+        };
+        a();
+    </script>
+    <!-- 4. 将js写入js文件中执行，好处是可以重用，代码文件分离，推荐使用 -->
+    <script src="script.js">
+        //script一旦引入外部文件，就不会执行内部js代码了
+        document.write('引入js文件之后，代码不会执行');
+    </script>
+</body>
+</html>
