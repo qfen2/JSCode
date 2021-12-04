@@ -11,7 +11,7 @@
  *      null==0 //false
  * undefined衍生自null，所以undefined==null会返回true
  * 
- * NaN不和任何值相等，包括它本身，可以通过isNaN()函数判断一个值是否为NaN
+ * NaN不和任何值相等，包括它本身，可以通过isNaN()函数判断一个值是否为一个数字
  * 
  * ===,!==,类似于python中的is
  */
