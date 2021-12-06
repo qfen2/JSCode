@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            创建一个对象
+        */
+        var obj = {
+            name: '孙悟空',
+            age: 18,
+            sayName: function () {
+                console.log(this.name);
+            }
+        }
+        /*
+         通过工厂方法创建对象，相当于用函数生成一个对象返回，
+         防止重复造轮子，类似于python中的类，但使用工厂方法
+         创建的都是Object对象，无法明确区分对象类别
+        */
+        function createPerson(name, age, gender) {
+            var obj = new Object();
+            obj.name = name,
+                obj.age = age,
+                obj.gender = gender,
+                obj.sayName = function () {
+                    console.log(this.name)
+                }
+            return obj;
+        }
+
+        function createDog(name, age) {
+            var obj = new Object();
+            obj.name = name,
+                obj.age = age
+        }
+
+        /*
+            创建一个构造函数，专门用来创建Person对象，与普通函数的区别就是
+            首字母需要大写构造函数和普通函数的区别就是调用方式的不同，普通
+            函数是直接调用，构造函数通过new调用
+
+            构造函数的执行过程：
+            1.立即创建一个新的对象
+            2.将新建的对象设置为函数中的this，在构造函数中通过this来引用新
+            建的对象
+            3.逐行执行函数中的代码
+            4.将对象作为返回值返回
+        */
+        function Person(name, age, gender) {
+            //创建哪个对象，this就代表谁
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+
+        var per1 = new Person();
+        console.log(per1);
+
+    </script>
+</body>
+
+</html>

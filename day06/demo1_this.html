@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * 解析器在调用函数时，每次都会向函数内存传递一个隐含的参数
+         * 这个隐含的参数就是this,this指向的一个对象，这个对象我们
+         * 称为是函数执行的上下文对象，根据函数调用的方式不同，this
+         * 会指向不同的对象，谁调用this，this就是谁
+         * 
+         */
+
+        function fun(){
+            console.log("this="+this.name);
+        }
+
+        fun(); //this=[object Window]
+        var obj={
+            name:'Tom',
+            sayHello:fun
+        }
+
+        obj.sayHello(); //this=[object Object]
+    </script>
+</body>
+</html>
