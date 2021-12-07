@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            使用原型对象添加属性时，相当于给实例也添加了属性
+        */
+       function MyClass(name){
+            this.name=name
+       }
+       MyClass.prototype.testname='hello';
+       var mc=new MyClass('二哈');
+       //in判断实例中的属性时，会先判断实例中的属性，没有的话再去原型对象中查找
+       console.log('testname' in mc); //true
+       //判断实例是否有自己的独有属性时，可以用hasOwnProperty判断
+       console.log(mc.hasOwnProperty('name')); //true
+       //原型对象也是对象，所以他也有原型对象，比如hasOwnProperty方法原型对象
+       //里是没有的，这是可以向原型的原型对象中找
+       console.log(mc.__proto__.hasOwnProperty('hasOwnProperty')); //false
+       console.log(mc.__proto__.__proto__.hasOwnProperty('hasOwnProperty')); //true
+    </script>
+</body>
+</html>

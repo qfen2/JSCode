@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Person(name,age) {
+            this.name = name;
+            this.age = age;
+            //这种方式，在每次创建实例时，都会创建一个方法，会占用大量内存
+            //可以使所有实例共用一个方法，用引用的方式提取出来
+            // this.sayHello = function() {
+            //     console.log('你好我是' + this.name);
+            // }
+            this.sayHello = say;
+        }
+        function say() {
+            console.log('你好我的名字是：' + this.name);
+        }
+
+        var p1=new Person('tom',18);
+        p1.sayHello();
+
+    </script>
+</body>
+
+</html>
