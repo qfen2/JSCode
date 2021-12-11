@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * 通过元素获取节点
+         * 
+         * 
+         */
+        document.getElementById();
+        document.getElementsByTagName();
+        var inputs = document.getElementsByName('hello');
+        document.getElementsByClassName();
+        for (i = 0; i < inputs.length; i++) {
+            //读其他属性名时可以直接使用元素.id，元素.name，元素.value
+            //唯独读取class时需要使用元素.className
+            console.log(inputs[i].className);
+        }
+    </script>
+    <div id="outer"></div>
+</body>
+
+</html>

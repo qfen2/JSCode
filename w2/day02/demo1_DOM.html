@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id='btn'>
+        你猜这是啥
+        <span>这是一个按钮</span>
+    </button>
+    <script>
+        /**
+        * 文档对象模型
+        *  JS通过DOM对HTML文档进行操作，可以随心所欲的操作WEB界面
+        * 
+        * 模型（DOM树），体现节点和节点之间的关系
+        * 
+        * 节点node，构成我们网页的基本组成部分，网页中每个部分都可以成为一个节点
+        * 
+        */
+
+        //根据id获取对象
+        var btn=document.getElementById('btn')
+        console.log(btn.innerHTML); //获取btn里面的所有元素
+        console.log(btn.innerText); //获取btn里面的所有文本
+        //修改按钮的文本
+        btn.innerHTML='啥也不是';
+        // btn.innerText='啥也不是';
+
+    </script>
+</body>
+</html>

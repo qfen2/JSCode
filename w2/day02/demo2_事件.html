@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // window.onload=function(){
+        //     alert('页面加载完毕');
+        // }
+    </script>
+</head>
+<body>
+    <!-- 第一种方式：属性方式绑定js-->
+    <button id='btn' onclick="">
+        登录
+    </button>
+    <script>
+        //第二种方式：获取对象，通过对象的行为绑定，函数称为单击响应函数
+        var btn=document.getElementById('btn');
+        btn.onclick=function(){
+            alert('登录失败!');
+        }
+        alert('页面加载完毕');
+    </script>
+</body>
+</html>

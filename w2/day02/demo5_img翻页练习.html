@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #outer{
+            width: 700px;
+            margin: 50px auto;
+            padding: 0px;
+            background-color: rgb(16, 168, 36);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <img src="img/1.jpeg" alt="">
+        <button id="prev"><<</button>
+        &nbsp;
+        <button id="last">>></button>
+    </div>
+    <script>
+        var prevBtn = document.getElementById('prev');
+        var lastBtn = document.getElementById('last');
+        var imgTag = document.getElementsByTagName('img')[0];
+        var srcStr = imgTag.src;
+        var reg = /img\/(\d).jpeg/;
+        var num = Number(srcStr.match(reg)[1]);
+        prevBtn.onclick = function () {
+            if (num == 1) {
+                //num=1表示图片到第一张，提示到第一张了
+                alert('到第一张了！');
+            } else {
+                num -= 1;
+                imgTag.src = 'img/' + String(num) + '.jpeg';
+            }
+        }
+        lastBtn.onclick = function () {
+            if (num == 5) {
+                //num=5表示图片到最后一张，提示到最后一张了
+                alert('到最后一张了！');
+            } else {
+                num += 1;
+                imgTag.src = 'img/' + String(num) + '.jpeg';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
