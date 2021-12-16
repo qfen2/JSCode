@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        #box1 {
+            width: 500px;
+            height: 500px;
+            background-color: cornflowerblue;
+        }
+    </style>
+    <script>
+        /**
+         * 通过JS修改元素的样式：
+         *      元素.style.样式名=样式值;
+         * 通过style修改的样式是内联样式，有较高的优先级，所以通过JS修改的样式往往会优先显示
+         * 通过style读取的样式也是内联样式
+         * 但如果样式中写了!important，则此时会有最高的优先级，及时通过内联样式中的js覆盖也不会改变
+        */
+        window.onload = function () {
+            //点击按钮改变box的大小
+            var box1 = document.getElementById('box1');
+            var btn = document.getElementById('btn');
+            btn.onclick = function () {
+                box1.style.width = "600px";
+                box1.style.height = "600px";
+                box1.style.backgroundColor = "red";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn">点我一下</button>
+    <br><br>
+    <div id="box1"></div>
+</body>
+
+</html>

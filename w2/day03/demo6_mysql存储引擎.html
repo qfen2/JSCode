@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #innodb,#myisam,#memory,#archive{
+            width: 800px;
+            height: auto;
+            background-color:lavender;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <p>
+            <b>常用的四种存储引擎：
+            MYISAM、InnoDB、MEMORY、ARCHIVE
+            四种存储引擎比较：
+            </b>
+            <p id="innodb">
+                InnoDB：支持事务处理，支持外键，支持崩溃修复能力和并发控制。
+                如果需要对失误的完整性要求比较高（比如银行），要求实现并发控
+                制（比如售票），那选择InnoDB有很大的优势。如果需要频繁的更新
+                ，删除操作的数据库，也可以选择InnoDB，因为支持事务的提交com
+                -mit和回滚rollback
+            </p>
+            <p id="myisam">
+                MyISAM：插入数据快，空间和内存使用比较低，如果表主要是用
+                于插入新纪录和读取记录，那么选择MyISAM能实现处理高效率，
+                如果应用的完整性，并发性要求比较低，也可以使用，如果数据表
+                主要用来插入和查询记录则MyISAM引擎能提供较高的处理效率
+            </p>
+            <p id="memory">
+                MEMORY：所有的数据都在内存中，数据的处理速度快，但安全性不
+                高，对表的大小有要求，不能建立太大的表，如果只是临时存放数
+                据，数据量不大，并且不需要较高的安全性，可以选择MEMORY引擎
+            </p>
+            <p id="archive">
+                ARCHIVE：如果只有INSERT和SELECT操作，可以选择ARCHIVE，它
+                支持高并发的插入操作，但本身不是事务安全的，ARCHIVE非常适合
+                存储归档数据，比如记录日志信息
+            </p>
+        </p>
+    </form>
+</body>
+</html>

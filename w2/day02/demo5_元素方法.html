@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id='emt'>
+        <li>曹操</li>
+        <li>郭嘉</li>
+        <li>刘备</li>
+        <li>周瑜</li>
+        <li>鲁肃</li>
+    </ul>
+    <button id='btn'>childNodes</button>
+    <button id='btn1'>children</button>
+    <button id='btn2'></button>
+    <button id='btn3'>&nbsp;随便点</button>
+    <script>
+        /*
+            通过元素调用方法定位节点
+                getElementByTagName(): 返回当前节点的指定标签名后代节点
+                childNodes: 返回当前节点的所有子节点，一般户用children代替
+        */
+        var names = document.getElementById('emt');
+        var lis = names.getElementsByTagName('li');
+        var btn = document.getElementById('btn');
+        var btn1 = document.getElementById('btn1');
+        btn1.onclick = function () {
+            for (var j = 0; j < names.children.length; j++) {
+                alert(names.children[j].textContent);
+            }
+        }
+        btn.onclick = function () {
+            for (var i = 0; i < names.childNodes.length; i++) {
+                alert(names.childNodes[i].textContent);
+            }
+        }
+        //第一个元素节点/最后一个元素节点
+        // alert(names.firstElementChild.innerHTML);
+        // alert(names.lastElementChild.innerHTML);
+
+        /**
+         * 父节点和兄弟节点
+         *      parentNode
+        */
+        alert(names.parentNode); //body
+        alert(btn.previousElementSibling);
+    </script>
+</body>
+
+</html>

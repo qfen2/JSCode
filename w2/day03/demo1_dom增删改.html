@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="city">
+        <ul id="addr">
+            <li id="bj">北京</li>
+            <li>上海</li>
+            <li>深圳</li>
+        </ul>
+        <button id="add">添加广州</button>
+    </div>
+    <script>
+        /**
+         * 创建节点，创建文本对象
+         * 添加子节点
+         * appendChild()
+         * 
+         */
+        //在北京下面添加一个广州li节点
+        var li = document.querySelectorAll('#addr')[0];
+        //创建li节点
+        var newLi = document.createElement('li');
+        newLi.append('广州');
+        // li.appendChild(newLi);
+        var city = document.getElementById('addr');
+        var bj = document.getElementById('bj');
+        var add = document.getElementById('add');
+        add.onclick=function(){
+            //在指定的子节点前插入一个新的节点
+            bj.parentNode.insertBefore(newLi,bj); //相对路径方法插入节点
+            city.insertBefore(newLi,bj);
+        }
+        //替换子节点和insertBefore用法类似，replaceChild
+        //removeChild删除子节点
+
+        //也可以使用innerHTML进行增删改查的操作，代码简单，但是底层实现会麻烦一点
+    </script>
+</body>
+</html>

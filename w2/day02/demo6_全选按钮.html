@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        你最爱的运动是：<input type="checkbox" id='checkAllBox'>全选/全不选
+        <br>
+        <input type="checkbox" name="items" value="足球">足球
+        <input type="checkbox" name="items" value="篮球">篮球
+        <input type="checkbox" name="items" value="羽毛球">羽毛球
+        <input type="checkbox" name="items" value="乒乓球">乒乓球
+        <br>
+        <input type="button" id="checkedAllBtn" value="全选">
+        <input type="button" id="checkedNoBtn" value="全不选">
+        <input type="button" id="checkedRevBtn" value="反选">
+        <input type="button" id="sendBtn" value="提交">
+    </form>
+    <script>
+        //点击全选让四个按钮都处于选中状态(设置选中框的checked属性即可)
+        var items = document.getElementsByName('items');
+        //获取全选按钮
+        var allBox = document.getElementById('checkedAllBtn');
+        allBox.onclick = function () {
+            for (var i = 0; i < items.length; i++) {
+                items[i].checked = true;
+            }
+
+            allBtn.checked = true;
+        }
+        //同理处理全不选按钮
+        var noBox = document.getElementById('checkedNoBtn');
+        noBox.onclick = function () {
+            for (var i = 0; i < items.length; i++) {
+                items[i].checked = false;
+            }
+            allBtn.checked = false;
+        }
+        //处理反选按钮
+        var revBox = document.getElementById('checkedRevBtn');
+        revBox.onclick = function () {
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].checked) {
+                    //反选
+                    items[i].checked = false;
+                } else {
+                    items[i].checked = true;
+                }
+            }
+        }
+        //提交按钮，显示选中的多选框的文本内容
+        var sendBox = document.getElementById('sendBtn');
+        sendBtn.onclick = function () {
+            for (var i = 0; i < items.length; i++) {
+                if (items[i].checked) {
+                    alert(items[i].value)
+                }
+            }
+        }
+        //处理上端的全选/全不选按钮，实现只要有一个没勾选，全选按钮就不选
+        var allBtn = document.getElementById('checkAllBox');
+        allBtn.onclick = function () {
+            //判断按钮是否被选中
+            if (allBtn.checked) {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = true;
+                }
+            } else {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = false;
+                }
+            }
+
+
+        }
+        //当不选某一个球类时，按钮处理未被选中状态
+        //为四个选项框都绑定点击响应函数，先设置为true，在判断下面是否有未选中按钮
+        for (var j = 0; j < items.length; j++) {
+            items[j].onclick = function () {
+                allBtn.checked = true;
+                //每点一个，四个多选框都需要进行判断
+
+                //这里不能直接用items[j]进行判断，因为for循环在页面加载完立即执行，
+                //而响应函数在超链接被点击时才会生效，此时for循环已执行完毕
+                for (var i = 0; i < items.length; i++) {
+                    if (!items[i].checked) {
+                        allBtn.checked = false;
+                        //一旦进入判断则跳出循环
+                        break;
+                    }
+                }
+            }
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="div1">1
+        <div>2</div>
+    </div>
+    <div>3</div>
+    <script>
+        /*
+            document.body保存body标签的引用
+        */
+        var body = document.body;
+        // alert(body.innerHTML);
+
+        //获取根标签
+        var html = document.documentElement;
+
+        //获取页面的全部标签
+        var all = document.all;
+        // alert(all);
+
+        //getElementsbyClassName支持IE9+的浏览器
+        var div1 = document.getElementsByClassName('div1');
+        //获取class为div1中的所有div，根据css选择器，可以用来替代getElementsByClassName
+        var div2 = document.querySelector('.div1 div');
+        var div3 = document.querySelectorAll('.div');
+        alert(div2)
+    </script>
+</body>
+
+</html>
